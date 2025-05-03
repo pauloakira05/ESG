@@ -306,23 +306,36 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" ref={heroRef} className="section bg-gradient-legal relative overflow-hidden min-h-screen">
+      <section id="hero" ref={heroRef} className="section bg-gradient-legal relative overflow-hidden min-h-[120vh]">
         <div className="absolute inset-0 bg-[url('/images/law-ai-bg.jpg')] bg-cover bg-center opacity-20"></div>
         <div className="absolute inset-0 bg-gradient-legal opacity-90"></div>
         <div className="absolute inset-0 bg-pattern opacity-10 animate-pulse-slow"></div>
-        <div className="relative z-10 h-screen flex items-center justify-center px-4">
-          <AnimatedSection className="max-w-4xl mx-auto text-center">
+        <div className="relative z-10 min-h-[120vh] flex items-center justify-center px-4 py-20">
+          <AnimatedSection className="max-w-4xl mx-auto text-center space-y-8">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 font-serif transform transition-all duration-1000 hover:scale-105 animate-float">
               Mais negócios, menos trabalho
               <span className="block text-amber-400 mt-4 animate-pulse">A revolução da IA no Direito começa agora</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 transform transition-all duration-1000 hover:scale-105 animate-fade-in">
+            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto transform transition-all duration-1000 hover:scale-105 animate-fade-in">
               Em um mundo onde algoritmos decidem causas e contratos se auto-analisam,
               a verdadeira advocacia está na estratégia, não na burocracia.
               Bem-vindo ao amanhã.
             </p>
-            <div className="animate-bounce">
-              <ChevronDown className="w-12 h-12 text-white mx-auto transform transition-all duration-300 hover:scale-110" />
+            <div className="relative flex flex-col items-center gap-4">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-400/20 to-transparent rounded-full blur-xl animate-pulse-slow"></div>
+                <ChevronDown className="w-12 h-12 text-white relative z-10 transform transition-all duration-700 hover:translate-y-1 hover:text-amber-400" />
+              </div>
+              <div className="w-1 h-16 bg-gradient-to-b from-amber-400/50 to-transparent animate-pulse-slow"></div>
+            </div>
+            <div className="mt-4 w-full max-w-4xl mx-auto transform transition-all duration-700 hover:scale-[1.01]">
+              <iframe
+                className="w-full aspect-video rounded-lg shadow-2xl transform transition-all duration-700 hover:scale-105"
+                src="https://www.youtube.com/embed/OCBf262qA7Y"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
           </AnimatedSection>
         </div>
