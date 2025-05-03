@@ -112,22 +112,64 @@ html.loaded {
   }
 }
 
-/* Scrollbar Personalizada */
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Adjust based on your header height */
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Smooth Scroll Behavior */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e3a8a;
+  background: #888;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1e40af;
+  background: #555;
 }
 
 @keyframes float {
@@ -247,8 +289,8 @@ html.loaded {
 /* Animações de revelação */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.active {
@@ -258,8 +300,8 @@ html.loaded {
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(-50px);
-  transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+  transform: translateX(-30px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-left.active {
@@ -269,8 +311,8 @@ html.loaded {
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(50px);
-  transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+  transform: translateX(30px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-right.active {
@@ -280,8 +322,8 @@ html.loaded {
 
 .reveal-scale {
   opacity: 0;
-  transform: scale(0.9);
-  transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+  transform: scale(0.95);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-scale.active {
@@ -309,9 +351,4 @@ html.loaded {
 .hover-glow:hover {
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
   transform: translateY(-2px);
-}
-
-/* Efeitos de scroll suave */
-html {
-  scroll-behavior: smooth;
 }

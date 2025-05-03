@@ -39,9 +39,14 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({ children, className =
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+        } else {
+          setIsVisible(false);
         }
       },
-      { threshold: 0.1 }
+      { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
     );
 
     if (ref.current) {
@@ -58,8 +63,8 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({ children, className =
   return (
     <div
       ref={ref}
-      className={`${className} transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      className={`${className} transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
       {children}
@@ -141,6 +146,16 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    // Add smooth scrolling behavior to the entire document
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
+    // Remove smooth scrolling when component unmounts
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
   if (isLoading) {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
@@ -200,9 +215,9 @@ function App() {
     },
     {
       icon: <FileSearch className="w-12 h-12 text-blue-900" />,
-      title: 'JusBrasil',
-      description: 'Plataforma brasileira gratuita para pesquisa jurisprudencial, consulta processual e análise de documentos jurídicos',
-      link: 'https://www.jusbrasil.com.br',
+      title: 'Trello',
+      description: 'Plataforma de gerenciamento de projetos e organização de tarefas',
+      link: 'https://trello.com/pt-BR',
     },
   ];
 
@@ -306,7 +321,7 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" ref={heroRef} className="section bg-gradient-legal relative overflow-hidden min-h-[120vh]">
+      <section id="hero" ref={heroRef} className="section bg-gradient-legal relative overflow-hidden min-h-[120vh] animate-fade-in-up">
         <div className="absolute inset-0 bg-[url('/images/law-ai-bg.jpg')] bg-cover bg-center opacity-20"></div>
         <div className="absolute inset-0 bg-gradient-legal opacity-90"></div>
         <div className="absolute inset-0 bg-pattern opacity-10 animate-pulse-slow"></div>
@@ -342,7 +357,7 @@ function App() {
       </section>
 
       {/* Manifesto Section */}
-      <section id="manifesto" ref={manifestoRef} className="py-20 bg-white">
+      <section id="manifesto" ref={manifestoRef} className="py-20 bg-white animate-fade-in-up">
         <AnimatedSection className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-blue-900 mb-8 transform transition-all duration-500 hover:scale-105 animate-slide-up">Manifesto</h2>
           <div className="space-y-6">
@@ -371,7 +386,7 @@ function App() {
       </section>
 
       {/* Provocative Questions Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 animate-fade-in-up">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-8">
@@ -400,7 +415,7 @@ function App() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white animate-fade-in-up">
         <AnimatedSection className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center text-blue-900 mb-16 transform transition-all duration-500 hover:scale-105 animate-slide-up">
             Revolução em Cada Detalhe
@@ -424,7 +439,7 @@ function App() {
       </section>
 
       {/* Insights Section */}
-      <section className="py-20 bg-blue-900">
+      <section className="py-20 bg-blue-900 animate-fade-in-up">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center text-white mb-16">
             Insights Transformadores
@@ -447,7 +462,7 @@ function App() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white animate-fade-in-up">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center text-blue-900 mb-16">
             Histórias de Transformação
@@ -482,7 +497,7 @@ function App() {
       </section>
 
       {/* Future Vision Section */}
-      <section className="py-20 bg-gradient-to-b from-blue-900 to-blue-800">
+      <section className="py-20 bg-gradient-to-b from-blue-900 to-blue-800 animate-fade-in-up">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-8">
             2025: Seu Escritório Será Assim
@@ -504,7 +519,7 @@ function App() {
       </section>
 
       {/* Objetivos Section */}
-      <section id="objetivos" ref={objetivosRef} className="py-20 bg-gray-50">
+      <section id="objetivos" ref={objetivosRef} className="py-20 bg-gray-50 animate-fade-in-up">
         <AnimatedSection className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center text-blue-900 mb-16 transform transition-all duration-500 hover:scale-105 animate-slide-up">
             Objetivos do Projeto
@@ -528,7 +543,7 @@ function App() {
       </section>
 
       {/* Tools Section */}
-      <section id="ferramentas" ref={ferramentasRef} className="section bg-white py-20">
+      <section id="ferramentas" ref={ferramentasRef} className="section bg-white py-20 animate-fade-in-up">
         <AnimatedSection className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center text-blue-900 mb-16 transform transition-all duration-500 hover:scale-105 animate-slide-up">
             Ferramentas de IA para o Direito
@@ -647,7 +662,7 @@ function App() {
       </section>
 
       {/* Podcast Section */}
-      <section id="podcast" ref={podcastRef} className="py-20 bg-gray-50">
+      <section id="podcast" ref={podcastRef} className="py-20 bg-gray-50 animate-fade-in-up">
         <AnimatedSection className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center text-blue-900 mb-16 transform transition-all duration-500 hover:scale-105 animate-slide-up">
             Podcast
@@ -666,7 +681,7 @@ function App() {
       </section>
 
       {/* Metodologia Section */}
-      <section id="metodologia" ref={metodologiaRef} className="py-20 bg-white">
+      <section id="metodologia" ref={metodologiaRef} className="py-20 bg-white animate-fade-in-up">
         <AnimatedSection className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center text-blue-900 mb-16 transform transition-all duration-500 hover:scale-105 animate-slide-up">
             Metodologia
@@ -691,7 +706,7 @@ function App() {
       </section>
 
       {/* Team Section */}
-      <section id="equipe" ref={equipeRef} className="section bg-white py-20">
+      <section id="equipe" ref={equipeRef} className="section bg-white py-20 animate-fade-in-up">
         <AnimatedSection className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-blue-900 mb-12 text-center font-serif transform transition-all duration-500 hover:scale-105 animate-slide-up">Nossa Equipe</h2>
           <div className="mb-16 text-center max-w-4xl mx-auto">
@@ -724,7 +739,7 @@ function App() {
       </section>
 
       {/* Footer Section */}
-      <footer id="redes" ref={redesRef} className="bg-gray-50 py-8">
+      <footer id="redes" ref={redesRef} className="bg-gray-50 py-8 animate-fade-in-up">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col items-center justify-center space-y-4">
             <div className="flex items-center space-x-2 text-blue-900 transform transition-all duration-300 hover:scale-110 animate-float">
