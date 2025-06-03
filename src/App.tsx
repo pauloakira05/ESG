@@ -343,14 +343,26 @@ function App() {
               </div>
               <div className="w-1 h-16 bg-gradient-to-b from-amber-400/50 to-transparent animate-pulse-slow"></div>
             </div>
-            <div className="mt-4 w-full max-w-4xl mx-auto">
-              <iframe
-                className="w-full aspect-video rounded-lg shadow-2xl transform transition-all duration-700 hover:scale-105"
-                src="https://www.youtube.com/embed/OCBf262qA7Y"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl mx-auto">
+              <div className="transform transition-all duration-700 hover:scale-105">
+                <iframe
+                  className="w-full aspect-video rounded-lg shadow-2xl"
+                  src="https://www.youtube.com/embed/OCBf262qA7Y"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="transform transition-all duration-700 hover:scale-105">
+                <iframe
+                  className="w-full aspect-video rounded-lg shadow-2xl"
+                  src="https://www.youtube.com/embed/GFv6q5DX6BI"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
           </AnimatedSection>
         </div>
